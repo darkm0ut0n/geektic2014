@@ -1,12 +1,7 @@
 package com.ninja_squad.geektic.service;
 
-import static org.springframework.web.bind.annotation.RequestMethod.GET;
-
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,4 +24,5 @@ public class GeekService {
 	public List<Geek> listAllGeek() {
 	    return geekDao.findAll();
 	}
+	
 }

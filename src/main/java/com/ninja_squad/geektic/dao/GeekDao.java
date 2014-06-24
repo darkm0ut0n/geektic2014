@@ -20,11 +20,6 @@ public class GeekDao {
 		return entityManager.find(Geek.class, id);
 	}
 	
-	public void persist(Geek geek) {
-		entityManager.persist(geek);
-		entityManager.flush();
-	}
-	
 	public List<Geek> findAll() {
 		String jpql = "select g from Geek as g";
 		TypedQuery<Geek> query = entityManager.createQuery(jpql, Geek.class);

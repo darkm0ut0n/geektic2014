@@ -25,11 +25,11 @@ public class Geek {
 	private Integer sex;
 	
 	@Column(name = "GRAVATAR_URL")
-	private String gravatar_url;
+	private String gravatarUrl;
 	
 	@Column(name = "INTEREST")
 	private String interest;
-
+	
 	public String getPseudo() {
 		return pseudo;
 	}
@@ -46,12 +46,12 @@ public class Geek {
 		this.sex = sex;
 	}
 
-	public String getGravatar_url() {
-		return gravatar_url;
+	public String getGravatarUrl() {
+		return gravatarUrl;
 	}
 
 	public void setGravatar_url(String gravatar_url) {
-		this.gravatar_url = gravatar_url;
+		this.gravatarUrl = gravatar_url;
 	}
 
 	public String getInterest() {

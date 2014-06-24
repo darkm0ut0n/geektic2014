@@ -3,10 +3,7 @@ var app = angular.module("geektic", ['ngRoute']);
 app.config(function($routeProvider) {
 	$routeProvider.when('/', 
 		{templateUrl: 'views/main.html',
-		controller: 'MainControl'}).
-		when('/register', 
-		{templateUrl: 'views/register.html',
-		controller: 'RegisterControl'});
+		controller: 'MainControl'});
 });
 
 app.controller('MainControl', function($scope, $http) {
@@ -15,6 +12,6 @@ app.controller('MainControl', function($scope, $http) {
     });
 });
 
-app.controller('RegisterControl', function($scope, $http) {
-   
-});
+
+
+$http.post('/someUrl', data).success(successCallback);
