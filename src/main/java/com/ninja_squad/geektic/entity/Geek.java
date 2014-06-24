@@ -2,6 +2,8 @@ package com.ninja_squad.geektic.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,6 +15,10 @@ import javax.persistence.Table;
 @Table(name="GEEK")
 public class Geek {
 
+	public enum Interest {
+		Java, C, TDD, JUnit, PHP
+	}
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "geek_seq")
 	@Column(name = "ID_GEEK")
@@ -28,7 +34,8 @@ public class Geek {
 	private String gravatarUrl;
 	
 	@Column(name = "INTEREST")
-	private String interest;
+	@Enumerated(EnumType.STRING)
+	private Interest interest;
 	
 	public String getPseudo() {
 		return pseudo;
@@ -54,11 +61,11 @@ public class Geek {
 		this.gravatarUrl = gravatar_url;
 	}
 
-	public String getInterest() {
+	public Interest getInterest() {
 		return interest;
 	}
 
-	public void setInterest(String interest) {
+	public void setInterest(Interest interest) {
 		this.interest = interest;
 	}
 

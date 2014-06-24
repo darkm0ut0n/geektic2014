@@ -8,6 +8,7 @@ import com.ninja_squad.dbsetup.DbSetup;
 import com.ninja_squad.dbsetup.Operations;
 import com.ninja_squad.dbsetup.operation.Operation;
 import com.ninja_squad.geektic.entity.Geek;
+import com.ninja_squad.geektic.entity.Geek.Interest;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -24,9 +25,9 @@ public class GeekDaoTest extends BaseDaoTest {
 				Operations.deleteAllFrom("geek"),
 				Operations.insertInto("geek")
 		          .columns("id_geek", "pseudo", "sex", "gravatar_url", "interest")
-		          .values(1L, "Geekette", 0, "some_url", "JAVA")
-				  .values(2L, "Toto", 1, "another_url", "C#")
-				  .values(3L, "Tata", 0, "tata_url", "C++")
+		          .values(1L, "Geekette", 0, "some_url", Interest.Java)
+				  .values(2L, "Toto", 1, "another_url", Interest.C)
+				  .values(3L, "Tata", 0, "tata_url", Interest.JUnit)
 		          .build());
         DbSetup dbSetup = new DbSetup(destination, operation);
         dbSetup.launch();
