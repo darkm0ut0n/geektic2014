@@ -73,5 +73,16 @@ public class Geek {
 		return id;
 	}
 	
+	@Override
+	public boolean equals(Object obj) {
+		if (obj!= null && obj instanceof Geek){
+			Geek geek= (Geek)obj;
+			return (this.pseudo.equals(geek.getPseudo()) &&
+					this.sex.equals(geek.getSex()) &&
+					this.gravatarUrl.equals(geek.getGravatarUrl()) &&
+					this.interest.equals(geek.getInterest()));
+		}
+		return false;
+	}
 	
 }
