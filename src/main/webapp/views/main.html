@@ -1,5 +1,23 @@
+<div>Rechercher des geeks par critères</div>
+
+<form name="myForm" ng-submit="submitSearchForm()">
+	<table>
+		<tr>
+			<td><input type="radio" ng-model="sex" value="1">Male</td>
+			<td><input type="radio" ng-model="sex" value="0">Female</td>
+		</tr>
+		<tr>
+			<td><input type="radio" ng-model="interest" value="Java">Java</td>
+			<td><input type="radio" ng-model="interest" value="C">C</td>
+			<td><input type="radio" ng-model="interest" value="TDD">TDD</td>
+			<td><input type="radio" ng-model="interest" value="JUnit">JUnit</td>
+			<td><input type="radio" ng-model="interest" value="PHP">PHP</td>
+		</tr>
+	</table>
+  <input type="submit" id="submit" value="Submit"/>
+</form>
+
+utilisateurs trouvés <br>
 <div ng-repeat="geek in geeks">
-		{{geek.pseudo}}
-		<img  src="{{geek.gravatar_url}}">
-		</br>	
+	{{geek.pseudo}}
 </div>

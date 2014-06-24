@@ -7,9 +7,16 @@ app.config(function($routeProvider) {
 });
 
 app.controller('MainControl', function($scope, $http) {
-    $http.get('/api/geeks').success(function(geeks) {
-        $scope.geeks = geeks;
-    });
+    $scope.submitSearchForm = function() {
+    	var serviceUrl = '/api/geeks/interest';
+    	$http({
+    		url: serviceUrl, 
+    		method: "GET",
+    		params: {sex:$scope.sex, interest:$scope.interest}
+    	}).success(function(geeks) {
+    		$scope.geeks = geeks;
+    	});
+    };
 });
 
 
