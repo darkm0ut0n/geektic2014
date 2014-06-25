@@ -1,20 +1,24 @@
-<div>Rechercher des geeks par critères</div>
+<h2>Rechercher des geeks par critères</h2>
 
 <form name="myForm" ng-submit="submitSearchForm()">
-	<table>
-		<tr>
-			<td><input type="radio" ng-model="sex" value="1">Male</td>
-			<td><input type="radio" ng-model="sex" value="0">Female</td>
-		</tr>
-		<tr>
-			<td><input type="radio" ng-model="interest" value="Java">Java</td>
-			<td><input type="radio" ng-model="interest" value="C">C</td>
-			<td><input type="radio" ng-model="interest" value="TDD">TDD</td>
-			<td><input type="radio" ng-model="interest" value="JUnit">JUnit</td>
-			<td><input type="radio" ng-model="interest" value="PHP">PHP</td>
-		</tr>
-	</table>
-  <input type="submit" id="submit" value="Submit"/>
+	<div class="form-group">
+		<label class="sr-only" for="exampleInputEmail2">Sex</label>
+		<input type="radio" class="form-control" ng-model="sex" value="1">Male
+		<input type="radio" class="form-control" ng-model="sex" value="0">Female
+		<input type="radio" class="form-control" ng-model="sex" value="">Ne pas utiliser ce critère
+	</div>
+	<br>
+	<div class="form-group">
+		<label class="sr-only" for="exampleInputEmail2">Sex</label>
+		<input type="radio" class="form-control" ng-model="interest" value="Java">Java
+		<input type="radio" class="form-control" ng-model="interest" value="C">C
+		<input type="radio" class="form-control" ng-model="interest" value="TDD">TDD
+		<input type="radio" class="form-control" ng-model="interest" value="JUnit">JUnit
+		<input type="radio" class="form-control" ng-model="interest" value="PHP">PHP
+		<input type="radio" class="form-control" ng-model="interest" value="">Ne pas utiliser ce critère
+	</div>
+	<br>
+	<input type="submit" id="submit" value="Submit"/>
 </form>
 
 utilisateurs trouvés <br>
