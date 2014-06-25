@@ -23,7 +23,7 @@ app.controller('MainControl', function($scope, $http) {
     	
     	 var serviceUrl = '/api/geeks/'+geek.id;
     	 
-    	 $http.put(serviceUrl).success(function() {
+    	 $http.put(serviceUrl).success(function(newScore) {
     		 
     		 //predicat de filtre par id
     		 function elementHasId(element) {
@@ -31,7 +31,7 @@ app.controller('MainControl', function($scope, $http) {
     		 };
     		 
     		 $scope.geeks.filter(elementHasId).forEach(function(element) {
-    			 element.consulted++;
+    			 element.consulted = newScore;
     		 });
     	 });
     };

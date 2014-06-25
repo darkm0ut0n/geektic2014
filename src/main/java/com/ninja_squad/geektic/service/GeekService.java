@@ -36,8 +36,9 @@ public class GeekService {
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-	public void incrementConsulted(@PathVariable Long id) {
+	public int incrementConsulted(@PathVariable Long id) {
 		Geek geek = geekDao.findById(id);
 		geek.setConsulted(geek.getConsulted() + 1);
+		return geek.getConsulted();
 	}
 }

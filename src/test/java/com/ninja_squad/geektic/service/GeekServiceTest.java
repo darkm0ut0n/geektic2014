@@ -30,7 +30,7 @@ public class GeekServiceTest {
 		Geek mockedGeek = new Geek();
 		mockedGeek.setConsulted(0);
 		Mockito.when(geekDao.findById(1L)).thenReturn(mockedGeek);
-		geekService.incrementConsulted(1L);
+		assertEquals(1, geekService.incrementConsulted(1L));
 		assertEquals(1, geekDao.findById(1L).getConsulted());
 	}
 }
