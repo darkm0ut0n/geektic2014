@@ -11,32 +11,35 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@SequenceGenerator (sequenceName = "geek_seq", name="geek_seq")
-@Table(name="GEEK")
+@SequenceGenerator(sequenceName = "geek_seq", name = "geek_seq")
+@Table(name = "GEEK")
 public class Geek {
 
 	public enum Interest {
 		Java, C, TDD, JUnit, PHP
 	}
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "geek_seq")
 	@Column(name = "ID_GEEK")
 	private Long id;
-	
+
 	@Column(name = "PSEUDO")
 	private String pseudo;
-	
+
 	@Column(name = "SEX")
 	private Integer sex;
-	
+
 	@Column(name = "GRAVATAR_URL")
 	private String gravatarUrl;
-	
+
 	@Column(name = "INTEREST")
 	@Enumerated(EnumType.STRING)
 	private Interest interest;
-	
+
+	@Column(name = "CONSULTED")
+	private int consulted;
+
 	public String getPseudo() {
 		return pseudo;
 	}
@@ -72,17 +75,25 @@ public class Geek {
 	public Long getId() {
 		return id;
 	}
-	
+
+	public int getConsulted() {
+		return consulted;
+	}
+
+	public void setConsulted(int consulted) {
+		this.consulted = consulted;
+	}
+
 	@Override
 	public boolean equals(Object obj) {
-		if (obj!= null && obj instanceof Geek){
-			Geek geek= (Geek)obj;
-			return (this.pseudo.equals(geek.getPseudo()) &&
-					this.sex.equals(geek.getSex()) &&
-					this.gravatarUrl.equals(geek.getGravatarUrl()) &&
-					this.interest.equals(geek.getInterest()));
+		if (obj != null && obj instanceof Geek) {
+			Geek geek = (Geek) obj;
+			return (this.pseudo.equals(geek.getPseudo())
+					&& this.sex.equals(geek.getSex())
+					&& this.gravatarUrl.equals(geek.getGravatarUrl()) && this.interest
+						.equals(geek.getInterest()));
 		}
 		return false;
 	}
-	
+
 }

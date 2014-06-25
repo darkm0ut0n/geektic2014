@@ -5,6 +5,7 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,14 +22,22 @@ public class GeekService {
 
 	@Autowired
 	private GeekDao geekDao;
-	
-	@RequestMapping(method = RequestMethod.GET )
+
+	@RequestMapping(method = RequestMethod.GET)
 	public List<Geek> listAllGeeks() {
-	    return geekDao.findAll();
+		return geekDao.findAll();
 	}
-	
-	@RequestMapping(value="/interest", method = RequestMethod.GET)
-	public List<Geek> listGeeksByCriteria(@RequestParam(value="sex", required=false) Integer sex, @RequestParam(value="interest", required=false) Interest interest) {
+
+	@RequestMapping(value = "/interest", method = RequestMethod.GET)
+	public List<Geek> listGeeksByCriteria(
+			@RequestParam(value = "sex", required = false) Integer sex,
+			@RequestParam(value = "interest", required = false) Interest interest) {
 		return geekDao.findByCriteria(sex, interest);
+	}
+
+	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+	public void incrementConsulted(@PathVariable Long id) {
+		Geek geek = geekDao.findById(id);
+		geek.setConsulted(geek.getConsulted() + 1);
 	}
 }
