@@ -23,5 +23,7 @@
 
 utilisateurs trouvés <br>
 <div ng-repeat="geek in geeks">
-	{{geek.pseudo}}
+	<button ng-click="likeProfil(geek)" >like {{geek.pseudo}}</button>
+	<img  src="{{geek.gravatarUrl}}">
+	<label>score : {{geek.consulted}}</label>
 </div>

@@ -7,6 +7,7 @@ app.config(function($routeProvider) {
 });
 
 app.controller('MainControl', function($scope, $http) {
+	
     $scope.submitSearchForm = function() {
     	var serviceUrl = '/api/geeks/interest';
     	$http({
@@ -17,8 +18,21 @@ app.controller('MainControl', function($scope, $http) {
     		$scope.geeks = geeks;
     	});
     };
+    
+    $scope.likeProfil = function(geek) {
+    	
+    	 var serviceUrl = '/api/geeks/'+geek.id;
+    	 
+    	 $http.put(serviceUrl).success(function() {
+    		 
+    		 //predicat de filtre par id
+    		 function elementHasId(element) {
+    			  return element.id == geek.id;
+    		 };
+    		 
+    		 $scope.geeks.filter(elementHasId).forEach(function(element) {
+    			 element.consulted++;
+    		 });
+    	 });
+    };
 });
-
-
-
-$http.post('/someUrl', data).success(successCallback);

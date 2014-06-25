@@ -27,11 +27,10 @@ public class GeekDaoTest extends BaseDaoTest {
 				Operations.deleteAllFrom("geek"),
 				Operations
 						.insertInto("geek")
-						.columns("id_geek", "pseudo", "sex", "gravatar_url",
-								"interest")
-						.values(1L, "Geekette", 0, "some_url", Interest.Java)
-						.values(2L, "Toto", 1, "another_url", Interest.C)
-						.values(3L, "Tata", 0, "tata_url", Interest.JUnit)
+						.columns("id_geek", "pseudo", "sex", "gravatar_url", "interest")
+						.values(1L, "Geekette", 0, "https://s.gravatar.com/avatar/7fecd6ae4970e002044bf57e8a5aea31?s=80", Interest.Java)
+						.values(2L, "Toto", 1, "https://s.gravatar.com/avatar/7fecd6ae4970e002044bf57e8a5aea31?s=80", Interest.C)
+						.values(3L, "Tata", 0, "https://s.gravatar.com/avatar/7fecd6ae4970e002044bf57e8a5aea31?s=80", Interest.JUnit)
 						.build());
 		DbSetup dbSetup = new DbSetup(destination, operation);
 		dbSetup.launch();
